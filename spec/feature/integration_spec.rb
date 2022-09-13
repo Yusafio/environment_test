@@ -16,7 +16,9 @@ RSpec.describe 'Creating a book', type: :feature do
     fill_in 'Title', with: 'The Fellowship of the Ring'
     fill_in 'Author', with: 'J. R. R. Tolkien'
     fill_in 'Price', with: '9.99'
-    select_date("1997,June,26", :from => "Published date")
+    select '1954' :from => 'book_publishedDate_1i'
+    select '7' :from => 'book_publishedDate_2i'
+    select '29' :from => 'book_publishedDate_3i'
     click_on 'Create Book'
     visit books_path
     expect(page).to have_content('The Fellowship of the Ring')
